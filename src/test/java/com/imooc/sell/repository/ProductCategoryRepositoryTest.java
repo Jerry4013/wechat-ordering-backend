@@ -32,8 +32,8 @@ public class ProductCategoryRepositoryTest {
     @Test
     public void saveTest() {
         ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryType(3);
-        productCategory.setCategoryName("女生最爱");
+        productCategory.setCategoryType(4);
+        productCategory.setCategoryName("新商品");
         repository.save(productCategory);
 //        ProductCategory productCategory = repository.findById(2).orElse(null);
 //        if (productCategory != null) {

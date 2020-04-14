@@ -7,6 +7,7 @@ import com.imooc.sell.dataobject.ProductCategory;
 import com.imooc.sell.dataobject.ProductInfo;
 import com.imooc.sell.service.CategoryService;
 import com.imooc.sell.service.ProductService;
+import com.imooc.sell.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,10 +58,6 @@ public class BuyerProductController {
             productVOList.add(productVO);
         }
 
-        ResultVO resultVO = new ResultVO();
-        resultVO.setData(productVOList);
-        resultVO.setCode(0);
-        resultVO.setMsg("成功");
-        return resultVO;
+        return ResultVOUtil.success(productVOList);
     }
 }

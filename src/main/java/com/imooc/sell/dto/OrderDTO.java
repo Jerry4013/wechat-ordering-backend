@@ -1,21 +1,15 @@
-package com.imooc.sell.dataobject;
+package com.imooc.sell.dto;
 
+import com.imooc.sell.dataobject.OrderDetail;
 import com.imooc.sell.enums.OrderStatusEnum;
 import com.imooc.sell.enums.PayStatusEnum;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
-@Entity
-@DynamicUpdate
-@DynamicInsert
-public class OrderMaster {
+public class OrderDTO {
 
-    @Id
     private String orderId;
 
     private String buyerName;
@@ -28,13 +22,15 @@ public class OrderMaster {
 
     private BigDecimal orderAmount;
 
-    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus;
 
-    private Integer payStatus = PayStatusEnum.WAIT.getCode();
+    private Integer payStatus;
 
     private Date createTime;
 
     private Date updateTime;
+
+    List<OrderDetail> orderDetailList;
 
     public String getOrderId() {
         return orderId;
@@ -114,5 +110,13 @@ public class OrderMaster {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public List<OrderDetail> getOrderDetailList() {
+        return orderDetailList;
+    }
+
+    public void setOrderDetailList(List<OrderDetail> orderDetailList) {
+        this.orderDetailList = orderDetailList;
     }
 }
